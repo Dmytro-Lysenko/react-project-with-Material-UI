@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 
 import SearchIcon from "@mui/icons-material/Search";
+import CancelIcon from "@mui/icons-material/Cancel";
 import MailIcon from "@mui/icons-material/Mail";
 import { InputBase } from "@mui/material";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
     width: "50%",
     [theme.breakpoints.down("sm")]: {
       display: (props) => (props.isOpen ? "flex" : "none"),
+      width: "60%",
     },
   },
 
@@ -58,6 +60,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     display: (props) => (!props.isOpen ? "flex" : "none"),
   },
+
+  cancel: {
+    [theme.breakpoints.up("sm")]: {
+      display: "none",
+    },
+  },
+
   searchButton: {
     marginRight: theme.spacing(2),
     [theme.breakpoints.up("sm")]: {
@@ -76,7 +85,6 @@ function NavBar() {
   const classes = useStyles({ isOpen });
   return (
     <div>
-      NavBar
       <AppBar>
         <Toolbar className={classes.toolBar}>
           <Typography variant="h6" className={classes.logoLg}>
@@ -88,6 +96,9 @@ function NavBar() {
           <div className={classes.search}>
             <SearchIcon />
             <InputBase placeholder="search..." className={classes.input} />
+            <div className={classes.cancel}>
+              <CancelIcon onClick={() => setIsOpen(false)} />
+            </div>
           </div>
           <div className={classes.icons}>
             <div className={classes.searchButton}>
