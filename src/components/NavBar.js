@@ -85,7 +85,7 @@ function NavBar() {
   const classes = useStyles({ isOpen });
   return (
     <div>
-      <AppBar>
+      <AppBar position="fixed">
         <Toolbar className={classes.toolBar}>
           <Typography variant="h6" className={classes.logoLg}>
             Crystal Dev
